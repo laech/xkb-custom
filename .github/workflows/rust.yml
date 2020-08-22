@@ -17,4 +17,5 @@ jobs:
     - run: cargo run
     - uses: actions/upload-artifact@v2
       with:
+        name: custom.xkb
         path: custom.xkb
