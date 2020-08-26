@@ -225,11 +225,19 @@ fn get_keys() -> Vec<EightLevelKey> {
   vec![
     EightLevelKey::lv2(BACKSLASH, "backslash", "bar"),
     EightLevelKey::lv2(SPACE, "space", "space"),
-    EightLevelKey::lv2(BACKSPACE, "BackSpace", "BackSpace"),
+    EightLevelKey {
+      lv3: Some(Redirect::new(BACKSPACE, vec![Control, Shift])),
+      lv5: Some(Redirect::new(BACKSPACE, vec![Control])),
+      ..EightLevelKey::lv2(BACKSPACE, "BackSpace", "BackSpace")
+    },
     EightLevelKey::lv2(TAB, "Tab", "ISO_Left_Tab"),
     EightLevelKey::lv2(RETURN, "Return", "Return"),
     EightLevelKey::lv2(INSERT, "Insert", "Insert"),
-    EightLevelKey::lv2(DELETE, "Delete", "Delete"),
+    EightLevelKey {
+      lv3: Some(Redirect::new(DELETE, vec![Control, Shift])),
+      lv5: Some(Redirect::new(DELETE, vec![Control])),
+      ..EightLevelKey::lv2(DELETE, "Delete", "Delete")
+    },
     EightLevelKey::lv2(HOME, "Home", "Home"),
     EightLevelKey::lv2(END, "End", "End"),
     EightLevelKey::lv2(PAGE_UP, "Prior", "Prior"),
