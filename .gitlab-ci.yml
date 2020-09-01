@@ -1,6 +1,6 @@
 image: "rust:latest"
 
-run:cargo:
+run:
   script:
     - rustc --version && cargo --version
     - cargo run
