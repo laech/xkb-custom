@@ -1,0 +1,9 @@
+image: "rust:latest"
+
+run:cargo:
+  script:
+    - rustc --version && cargo --version
+    - cargo run
+  artifacts:
+    paths:
+      - custom.xkb
